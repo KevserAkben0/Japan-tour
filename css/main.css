@@ -327,128 +327,75 @@ footer p {
 }
 #inspect {
     background-color: #f9f9f9;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
-.inspectTop {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-/* Turlar tek sütun halinde alt alta dizilecek */
+/* Ana kapsayıcıyı 2'li sisteme zorluyoruz */
 .inspectBody .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 40px !important; /* Kartlar arası boşluk */
-    max-width: 1000px; /* Sayfada çok yayılmasın diye daralttık */
-    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* gap: ilk değer satır (üst-alt), ikinci değer sütun (sağ-sol) boşluğudur */
+    gap: 50px 30px !important; 
+    max-width: 1100px;
+    margin: 50px auto !important; /* Sayfanın genelinden de ayırdık */
 }
-
-/* HER BİR TUR KARTI (col2 artık profesyonel bir kart) */
 .inspectBody .col2 {
     background: #fff;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Şık bir gölge */
+    /* Gölgeyi biraz daha yumuşattık ki üst üste biniyor gibi durmasın */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
     display: flex !important;
-    flex-direction: row !important; /* Resim sol, yazı sağ (Yatay düzen) */
-    align-items: stretch !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 0 !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    border: 1px solid #f0f0f0; /* Kart sınırlarını belirginleştirdik */
+    transition: transform 0.3s ease;
 }
 
+/* Her bir Tur Kartı (col2) */
 .inspectBody .col2:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Üzerine gelince hafif yükselir */
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* RESİM ALANI (%45 GENİŞLİK) */
+/* Resim Alanı */
 .inspectImage {
-    width: 45% !important; /* Resim alanını büyüttük */
-    height: 100%;
+    width: 100% !important;
+    height: 250px !important; /* Resim boyunu sabitledik */
 }
 
 .inspectImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Resim kutuya tam sığar, bozulmaz */
-    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
-/* YAZI ALANI (%55 GENİŞLİK VE FERAH PADDING) */
+/* Yazı Alanı */
 .inspectText {
-    width: 55% !important;
-    padding: 40px !important; /* İçerideki yazıları ferahlattık */
+    padding: 20px !important;
+    flex-grow: 1; /* Yazı alanı az olsa bile kartı doldurur */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Yazıları dikeyde ortalar */
-    text-align: left; /* Yazıları sola yasladık (Daha profesyonel) */
 }
 
-/* TARİH */
-.date {
-    display: block;
-    color: #F4C2C2;
-    font-size: 13px;
-    font-style: italic;
-    margin-bottom: 8px;
-    font-weight: bold;
+/* Tarih, Başlık ve Buton Hizalaması */
+.date { color: #F4C2C2; font-size: 12px; margin-bottom: 5px; }
+h4 { font-size: 20px !important; margin-bottom: 10px !important; color: #333; }
+.inspectText p:not(.date) { font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px; }
+
+/* Butonu her zaman kartın en altına yaslar */
+.inspectText {
+    padding: 30px !important;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Yazıları ortalayarak daha estetik yaptık */
 }
 
-/* BAŞLIK (H4) */
-h4 {
-    font-size: 26px !important;
-    color: #333 !important;
-    margin-bottom: 15px !important;
-    font-weight: 800 !important;
-    line-height: 1.2;
-}
-
-/* AÇIKLAMA YAZISI */
-.inspectText p:not(.date) {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.8; /* Satır aralarını açtık, okunurluğu artırdık */
-    margin-bottom: 25px;
-}
-
-/* READ MORE LİNKİ */
-.inspectText a {
-    display: inline-block !important;
-    text-align: right !important; /* Senin istediğin gibi sağa yaslı */
-    text-decoration: none;
-    color: #F4C2C2 !important;
-    font-weight: bold;
-    font-size: 14px;
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-    margin-top: auto; /* Yazı kısa olsa bile butonu hep en alta sabitler */
-    width: auto !important;
-    align-self: flex-end; /* Sağa yaslar */
-}
-
-.inspectText a:hover {
-    color: #333 !important;
-    border-color: #333 !important;
-    text-decoration: none !important;
-}
-
-/* MOBİL AYARI: Telefonlarda kartlar alt alta (resim üst, yazı alt) gelir */
+/* MOBİL AYARI: Telefonlarda 2'li değil, tekli alt alta görünsün */
 @media (max-width: 768px) {
-    .inspectBody .col2 {
-        flex-direction: column !important;
-    }
-    
-    .inspectImage, .inspectText {
-        width: 100% !important;
-    }
-    
-    .inspectImage img {
-        height: 250px;
-    }
-    
-    .inspectText {
-        padding: 25px !important;
+    .inspectBody .container {
+        grid-template-columns: 1fr !important;
     }
 }
 .projectXTop{
