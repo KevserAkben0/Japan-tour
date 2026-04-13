@@ -1,323 +1,368 @@
-    /* GENERAL SETTING*/
+/* =========================================
+   GENEL AYARLAR & FONTLAR
+   ========================================= */
 @font-face {
-            font-family: 'Raleway';
-            src: url('../fonts/Raleway-Regular.ttf');
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-            background: #fff;
-            color: #3f3f3f;
-            font: 14px / 28px;
-            font-family: 'Raleway', arial;
+    background: #fdfdfd;
+    color: #444;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-}
-h1{
-     font-size: 52px;
-     letter-spacing: 4px;
-     margin-bottom: 20px;
-}
-.sectionHeader{
-    background: #FFD1DC;
-    border-bottom: 6px solid #000;
-    height: 60px;
-    color: #BDECB6;
-    display: inline-block;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7) !important; 
-    font-weight: bold;
-    display: inline-block;
-    font-size: 24px;
-    padding: 5px 40px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-h3{
-    font-size: 20px 5px;
-    color: #BDECB6; 
-    display: inline-block;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    transition: all .3s ease;
-}
-.sectionArea{
-    padding:80px 0;
-}
-/* GRID SETTING */
-.container{
-    width: %90;
-    margin: 0 auto;
-    display: flex;
-}
- .featuresBody .container, .engineBody .container{
-    justify-content: space-between;
-}
-.clo4{
-   flex: 1;
-    min-width: 250px; 
-    max-width: calc(25% - 20px); 
+/* =========================================
+   HEADER & MENÜ (SAĞA YASLI & YUVARLAK)
+   ========================================= */
+header {
     background: #fff;
-    padding: 10px;
-    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 10px 0;
+    width: 100%;
+}
 
+header .container {
+    width: 98% !important; /* Genişliği maksimuma çektik */
+    max-width: 1300px !important; 
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* KESİNLİKLE ALT SATIRA GEÇME */
 }
- .col2{
-    flex-grow: 1;
-    width: 50%;
-    padding: 20px;
-}
-/* HOME  SETTING */
+
 header .logo {
-    margin-right: auto;
-}
-header .logo img {
-    display: block;     
-    height: 70px;
-}
- 
-.menu li {
-    float: left;
-}
-.menu li a {
-    padding: 27px 17px;
-    display: block;
-    text-decoration: none;
-    letter-spancing: 2px;
-    color: #FFB7C5 ;
-    transition: all  0.3s ease;
+    flex-shrink: 0; /* Logo asla küçülmesin ve menüyü sıkıştırmasın */
 }
 
-.menu li:hover a {
-    background-color: #F4C2C2; 
-    color: #ffffff;
+header .logo img {
+    height: 45px; /* Logoyu bir tık daha küçülterek menüye yer açtık */
+    display: block;
 }
+
+.menu {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 5px !important; /* Aradaki boşluğu iyice daralttık */
+    flex-shrink: 0; /* Menü kendini küçültmesin */
+}
+
+.menu li {
+    display: inline-block !important;
+    white-space: nowrap !important; /* Yazı asla kırılmasın */
+}
+
+.menu li a {
+    text-decoration: none !important;
+    color: #F4C2C2;
+    font-weight: 700;
+    padding: 8px 12px !important; /* Padding'i düşürdük ki CONTACT sığsın */
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 12px !important; /* Fontu bir tık küçülttük */
+    display: block !important;
+}
+
+.menu li a:hover {
+    background-color: #F4C2C2;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(244, 194, 194, 0.4);
+}
+/* =========================================
+   ANA SLIDER (BANNER)
+   ========================================= */
 #mainSlider {
     width: 100%;
-    height: 500px;
-    background: url('../img/mainHome.jpeg') center center no-repeat;
-    background-size: cover;
-    position: relative;
-    filter: brightness(70%) contrast(110%);
+    height: 500px !important; /* Yüksekliği garanti altına alalım */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/mainHome.jpeg') center center no-repeat !important;
+    background-size: cover !important;
+    display: flex !important;
+    flex-direction: column; /* Başlık ve alt yazıyı alt alta dizmek için */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.siler {
-    width: 100%;
+/* Banner üzerindeki başlık (DENİZ KEVSER AKBEN TOURS) */
+.caption h1 {
+    color: #ffffff !important;
+    font-size: 45px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Okunurluğu artırır */
+    margin-bottom: 10px;
 }
-#mainCaption {
+
+/* Banner üzerindeki açıklama (Japan tour for peaceful...) */
+.caption p {
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   TUR KARTLARI (KÜÇÜK & MODERN)
+   ========================================= */
+.sectionArea {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.sectionHeader {
+    font-size: 28px;
+    color: #333;
+    border-bottom: 3px solid #F4C2C2;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+.featuresBody .container {
+    width: 90%;
+    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.item:hover { transform: translateY(-10px); }
+
+.item .zoom {
+    height: 180px; /* Görselleri senin istediğin gibi kibarlaştıran ayar */
+    overflow: hidden;
+}
+
+.item .zoom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .itemText { padding: 20px; }
+
+/* =========================================
+   ENGINE OVERLAY (O EKSİK OLAN EFEKTLİ BÖLÜM)
+   ========================================= */
+/* Alt taraftaki Servis Kartları */
+.engineBody .container {
+    display: flex !important;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.engineContainer {
+    position: relative;
+    flex: 1;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.imageOver {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* PEMBE KATMAN - Başlangıçta ikisinde de GİZLİ olmalı */
+.engineOverlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:  #fff;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7) !important; 
-    font-weight: bold;
-}
- 
-.featuresTop{
-    text-align: center;
-}
-.item{
-   padding: 10px 20px;
-}
-.zoom{
-   position: relative;
-   overflow: hidden; 
-   display: inline-block;
-   width: 100%;
-   vertical-align: top;
-}
- .zoom img{
-   display: block;
-   width: 100%;
-   height: auto;
-   transition: all .3s ease;
-}
-.item .itemText{
-   text-align: center;
-   padding: 5px;
-   border: 2px solid #FFB7C5;
-}
-.item:hover .zoom img {
-    transform: scale(1.25);
-}
-.item:hover h3{
-   color: #fff;
-}
-.item:hover .itemText{
-   background: #F4C2C2;
-   color: #fff;
-   transition: all .3s ease;
-}
-.btnDetails{
-   color: #BDECB6;
-   padding: 5px 10px;
-   text-decoration: none;
-   display: inline-block;
-   margin-top: 15px;
-   border: 1px solid #F4C2C2;
-}
-#parallax{
-   background: linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0, 0.7)), url('../img/parallax.jpg') !important;
-   background-attachment: fixed;
-   background-size: cover;
-   background-position: center;
-   text-align:center;
-}
-
-#parallax p{
-   color:#BDECB6;
-}
-.engineTop{
-  text-align: center;
-}
-.engineContainer{
-  position: relative;
-  width: 100%;
-}
-.imageOver{
-   display: block;
-   width: 100%;
-   height: auto;
-}
-.engineOverlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 182, 197, 0.6);
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-}
-.engineContainer:hover .engineOverlay{
-   height: 100%;
-   width: 100%;
-}
-.engineText{
-   white-space: nowrap;
-   color: #BDECB6;
-   font-size: 20px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   tranform: translate(-50%, -50%);
-}
-.engineOverlay2{
-  position: absolute;
-  top: 0;
-  left: 100%;
-  right: 0;
-  background-color: rgba(255, 182, 197, 0.6);
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-}
-.engineContainer:hover .engineOverlay2{
-   height: 100%;
-   width: 100%;
-   left: 0;
-}
-footer{
-   background: #F4C2C2;
-   text-align: center;
-   padding: 40px 0;
-}
-footer .col3 {
-    flex: 1;           
-    min-width: 250px;  
-    text-align: center; 
-    padding: 10px;
-}
-
-footer .socialLinks {
+    background-color: rgba(244, 194, 194, 0.85); /* Şık pembe tonu */
     display: flex;
-    justify-content: center; 
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    
+    /* GİZLEME AYARLARI */
+    opacity: 0 !important; /* Başlangıçta görünmez yapıyoruz */
+    visibility: hidden !important;
+    transition: all 0.4s ease-in-out;
 }
-footer .socialLinks a i:hover {
-    color: #ffffff !important;
+
+/* HOVER - Fare üzerine gelince ikisinde de AYNI şekilde çalışacak */
+.engineContainer:hover .engineOverlay {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
-footer .socialLinks i {
-    color: #95a5a6 !important; 
-    font-size: 30px !important; 
+
+/* Üzerine gelince resim hafifçe büyüsün */
+.engineContainer:hover .imageOver {
+    transform: scale(1.1);
 }
-footer .socialLinks a {
-    text-decoration: none !important;
-}
-footer ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-footer ul li {
-    margin-bottom: 8px; 
-}
-.footerItem {
-    padding: 20px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    text-align: center;
-}
-.footerItem h3 {
-    order: -1 !important; 
+
+.engineText {
     color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+/* =========================================
+   FOOTER GENEL TASARIM
+   ========================================= */
+footer {
+    background: #F4C2C2;
+    padding: 60px 0 30px 0;
+    margin-top: 80px;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* 1. LOGO KISMI (Küçültme ve Modernizasyon) */
+.footerItem img {
+    max-width: 180px; /* Boyutu sabitledik */
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+    opacity: 1 !important; /* Görünürlüğü zorla */
+    visibility: visible !important;
+    transition: transform 0.3s ease;
+    /* filter: brightness(0) invert(1); <- Eğer logon yok olduysa bu satırı kullanma */
+}
+
+.footerItem img:hover {
+    transform: scale(1.1); /* Üzerine gelince tatlı bir büyüme */
+}
+
+/* 2. MENÜ (QUICK LINKS) DÜZENLEME */
+footer h3 {
     font-size: 18px;
     letter-spacing: 2px;
-    margin-top: 0 !important; 
-    margin-bottom: 20px;      
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
-.footerItem img {
-    order: 1; 
-    height: 50px;
-    opacity: .5;
-    margin: 10px 0; 
+.footerLinks ul {
+    list-style: none;
+    padding: 0;
 }
 
-footer p {
-    order: 2; 
-    color: #95a5a6;
+.footerLinks li {
+    margin-bottom: 12px;
 }
-.footerLinks a{
+
+.footerLinks a {
     text-decoration: none;
-    color: #95a5a6;
-    letter-spacing: 2px;
+    color: #ffffff !important; /* Mor rengi sildik, beyaz yaptık */
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
-.footerLinks a:hover{
-    color: #fff;
-    text-decoration: underline;
+
+.footerLinks a:hover {
+    color: #333 !important; /* Üzerine gelince koyu gri olur */
+    transform: translateX(5px); /* Hafifçe sağa kayma efekti */
+}
+
+/* 3. SOSYAL MEDYA LOGOLARI VE EFEKTLERİ */
+.socialLinks {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.socialLinks i {
+    color: #ffffff !important;
+    font-size: 26px !important;
+    transition: all 0.3s ease;
+}
+
+.socialLinks a:hover i {
+    color: #333 !important; /* Üzerine gelince ikonun rengi değişir */
+    transform: translateY(-5px) rotate(10deg); /* Havalanma ve hafif dönme efekti */
+}
+
+/* Alt Telif Yazısı */
+footer p {
+    margin-top: 40px;
+    font-size: 13px;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
 }
 /*TOUR SETTING*/
 #tourSlider {
     width: 100%;
-    height: 250px;
+    height: 400px; /* Görselin yüksekliğini biraz artırdık */
     background: url('../img/slide.jpeg') center center no-repeat;
     background-size: cover;
     position: relative;
-    filter: brightness(70%) contrast(110%);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 #tourCaption {
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* Flexbox sayesinde içindeki her şeyi ortalar */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4); /* Yazıların okunması için hafif karartma */
+}
+
+#tourCaption h1 {
+    color: #ffffff !important;
+    font-size: 55px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+
+#tourCaption p {
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 #inspect{
    background-color: #f5f5f5;
