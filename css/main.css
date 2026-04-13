@@ -330,38 +330,37 @@ footer p {
     padding: 60px 0;
 }
 
-/* Ana kapsayıcıyı 2'li sisteme zorluyoruz */
 .inspectBody .container {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    /* gap: ilk değer satır (üst-alt), ikinci değer sütun (sağ-sol) boşluğudur */
+    
     gap: 50px 30px !important; 
     max-width: 1100px;
-    margin: 50px auto !important; /* Sayfanın genelinden de ayırdık */
+    margin: 50px auto !important; 
 }
 .inspectBody .col2 {
     background: #fff;
     border-radius: 15px;
     overflow: hidden;
-    /* Gölgeyi biraz daha yumuşattık ki üst üste biniyor gibi durmasın */
+  
     box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
-    border: 1px solid #f0f0f0; /* Kart sınırlarını belirginleştirdik */
+    border: 1px solid #f0f0f0; 
     transition: transform 0.3s ease;
 }
 
-/* Her bir Tur Kartı (col2) */
+
 .inspectBody .col2:hover {
-    transform: translateY(-5px); /* Üzerine gelince hafif yükselir */
+    transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* Resim Alanı */
+
 .inspectImage {
     width: 100% !important;
-    height: 250px !important; /* Resim boyunu sabitledik */
+    height: 250px !important; 
 }
 
 .inspectImage img {
@@ -370,29 +369,29 @@ footer p {
     object-fit: cover !important;
 }
 
-/* Yazı Alanı */
+
 .inspectText {
     padding: 20px !important;
-    flex-grow: 1; /* Yazı alanı az olsa bile kartı doldurur */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Tarih, Başlık ve Buton Hizalaması */
+
 .date { color: #F4C2C2; font-size: 12px; margin-bottom: 5px; }
 h4 { font-size: 20px !important; margin-bottom: 10px !important; color: #333; }
 .inspectText p:not(.date) { font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px; }
 
-/* Butonu her zaman kartın en altına yaslar */
+
 .inspectText {
     padding: 30px !important;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    text-align: center; /* Yazıları ortalayarak daha estetik yaptık */
+    text-align: center; 
 }
 
-/* MOBİL AYARI: Telefonlarda 2'li değil, tekli alt alta görünsün */
+
 @media (max-width: 768px) {
     .inspectBody .container {
         grid-template-columns: 1fr !important;
